@@ -11,6 +11,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.SmsManager
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             receiver = object : BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
+                    Log.d("SMS", "Sending Text Message")
                     smsManager.sendTextMessage(phoneNumFormat, null, message, null, null)
                 }
             }
